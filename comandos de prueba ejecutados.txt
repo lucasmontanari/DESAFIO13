@@ -1,0 +1,42 @@
+nodemon server.js -p 8080 -m CLUSTER
+tasklist/fi "imagename eq node.exe"
+nodemon server.js -p 8080 -m FORK
+tasklist/fi "imagename eq node.exe"
+
+forver start server.js -p 8080 -m FORK
+forever list
+forever stop 8328
+forver start server.js -p 8080 -m CLUSTER
+forever list
+forever stopall
+
+pm2 start server.js -p 8080
+pm2 list
+pm2 monit
+pm2 delete 0
+pm2 start server.js -p 8080 -i max
+pm2 list
+pm2 delete 0
+pm2 delete 1
+pm2 delete 2
+pm2 delete 3
+pm2 start server.js -p 8080 -i max
+pm2 kill
+
+--Para la parte de nginx tuve que cambiar el codigo y los argumentos los paso directo sin -p -m
+--Primera parte // nginx-1.conf
+pm2 start server.js -- 8081 CLUSTER
+pm2 start server.js -f -- 8080
+pm2 list
+pm2 kill
+
+--Segunda parte // nginx-2.conf
+pm2 start server.js -- 8080 CLUSTER
+pm2 start server.js -f -- 8082
+pm2 start server.js -f -- 8083
+pm2 start server.js -f -- 8084
+pm2 start server.js -f -- 8085
+pm2 list
+pm2 kill
+
+-f es para forzar el funcionamiento de los otros servers, para no tener que crear disitintos archivos iguales

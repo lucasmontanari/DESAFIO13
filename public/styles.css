@@ -1,0 +1,43 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: 0;
+}
+
+.mainFormContainer {
+    height: 100vh;
+}
+
+.textColor {
+    color: #024;
+}
+
+.textColorSecondary {
+    color: rgb(255, 255, 255);
+}
+
+.redirectBottom {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.eliminarVista {
+    display: none;
+}
+
+.email{
+    color: blue;
+    font-weight: bold;
+}
+
+.fecha{
+    color: rgb(110, 55, 4);
+}
+
+.mensaje{
+    color: green;
+    font-style: italic;
+}
