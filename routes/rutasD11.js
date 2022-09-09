@@ -12,7 +12,7 @@ function info(req, res) {
         processId: process.pid,
         carpetaProyecto: process.cwd(),
     };
-    console.log(result)
+    //console.log(result)
     res.status(200).render('info', result);
 }
 
